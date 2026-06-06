@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [ main, master ]
 
-env:
-  STOCK_HARNESS_TMPDIR: ${{ runner.temp }}/stock-harness-tmp
-
 jobs:
   validate-claimsafe:
     runs-on: ubuntu-latest
