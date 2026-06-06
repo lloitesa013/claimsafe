@@ -1,0 +1,9 @@
+{
+  "description": "ClaimSafe v0.1 accepts release gate JSON with status/overall_status passed, official_claim_ready true, or official_claim_publishable true.",
+  "required": [
+    "status"
+  ],
+  "schema": "claimsafe_release_gate_schema_v0_1",
+  "type": "object"
+}
+

@@ -1,0 +1,15 @@
+{
+  "description": "ClaimSafe v0.1 claim contract shape. This repository validates the shape with the Python reference implementation.",
+  "required": [
+    "schema",
+    "claim_id",
+    "positive_claim",
+    "claim_limit",
+    "non_claims",
+    "required_evidence",
+    "publishable_when"
+  ],
+  "schema": "claimsafe_contract_schema_v0_1",
+  "type": "object"
+}
+

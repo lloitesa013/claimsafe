@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "benchmark_all_passed": true,
+    "claim_contract_copied": true,
+    "required_files_present": true
+  },
+  "claim_scope": {
+    "benchmark_suite": "downside_verification_v1",
+    "claim_id": "downside_verification_sota_grade_v0_1",
+    "claim_limit": "SOTA-grade deterministic verification coverage only"
+  },
+  "schema": "stock_harness_evidence_packet_v1",
+  "status": "passed"
+}
+

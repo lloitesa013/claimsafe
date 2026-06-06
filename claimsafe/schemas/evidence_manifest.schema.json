@@ -1,0 +1,13 @@
+{
+  "description": "ClaimSafe v0.1 evidence manifest shape. File entries contain packet-relative path, byte size, and SHA-256.",
+  "required": [
+    "schema",
+    "status",
+    "claim",
+    "file_count",
+    "files"
+  ],
+  "schema": "claimsafe_evidence_manifest_schema_v0_1",
+  "type": "object"
+}
+

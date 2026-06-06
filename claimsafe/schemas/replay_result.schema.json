@@ -1,0 +1,11 @@
+{
+  "description": "ClaimSafe v0.1 replay result shape. Stock Harness replay JSON is also accepted when its status is passed.",
+  "required": [
+    "schema",
+    "status",
+    "commands"
+  ],
+  "schema": "claimsafe_replay_result_schema_v0_1",
+  "type": "object"
+}
+

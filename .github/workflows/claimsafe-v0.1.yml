@@ -1,0 +1,52 @@
+name: ClaimSafe v0.1 CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  STOCK_HARNESS_TMPDIR: ${{ runner.temp }}/stock-harness-tmp
+
+jobs:
+  validate-claimsafe:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Compile ClaimSafe modules
+      run: |
+        python3 -m py_compile claimsafe/__init__.py claimsafe/__main__.py claimsafe/contract.py claimsafe/evidence.py claimsafe/replay.py claimsafe/verifier.py claimsafe/cli.py ops/claimsafe.py ops/run_claimsafe_demo.py ops/build_claimsafe_stock_example.py tests/test_claimsafe.py
+
+    - name: Run ClaimSafe unit tests
+      run: |
+        python3 -m unittest tests/test_claimsafe.py
+
+    - name: Run ClaimSafe pass/fail demo
+      run: |
+        python3 ops/run_claimsafe_demo.py --clean --pretty
+
+    - name: Build and verify ClaimSafe Stock Harness sample packet
+      run: |
+        python3 ops/build_claimsafe_stock_example.py --sample --clean --pretty
+        python3 ops/claimsafe.py --pretty verify --packet-dir dist/claimsafe_stock_harness_packet
+
+    - name: Upload ClaimSafe demo packets
+      uses: actions/upload-artifact@v4
+      with:
+        name: claimsafe-demo
+        path: dist/claimsafe_demo
+
+    - name: Upload ClaimSafe Stock Harness packet
+      uses: actions/upload-artifact@v4
+      with:
+        name: claimsafe-stock-harness-packet
+        path: dist/claimsafe_stock_harness_packet

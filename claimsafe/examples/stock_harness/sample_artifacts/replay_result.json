@@ -1,0 +1,13 @@
+{
+  "assertions": [
+    {
+      "id": "sample_replay_passed",
+      "passed": true
+    }
+  ],
+  "requires_official_claim_ready": true,
+  "requires_release_gate_json": true,
+  "schema": "stock_harness_release_candidate_replay_v1",
+  "status": "passed"
+}
+

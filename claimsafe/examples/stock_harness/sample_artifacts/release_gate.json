@@ -1,0 +1,11 @@
+{
+  "claim": {
+    "status": "supported_for_included_benchmark_suite"
+  },
+  "official_claim_ready": true,
+  "overall_status": "passed",
+  "python_gate_passed": true,
+  "schema": "stock_harness_release_gate_v1",
+  "status": "passed"
+}
+

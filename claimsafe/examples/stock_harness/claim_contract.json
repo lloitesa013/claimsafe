@@ -1,0 +1,50 @@
+{
+  "claim_id": "stock_harness_claimsafe_reference_v0_1",
+  "claim_limit": "Only valid for the included downside_verification_v1 benchmark suite and the attached Stock Harness evidence artifacts.",
+  "forbidden_phrases": [
+    "future return guaranteed",
+    "guaranteed returns",
+    "live trading ready",
+    "winning stocks",
+    "guaranteed alpha"
+  ],
+  "non_claims": [
+    "No financial advice.",
+    "No live trading readiness claim.",
+    "No return guarantee or future performance claim.",
+    "No broker integration, order routing, or execution-readiness claim.",
+    "No universal market, strategy, or external-framework dominance claim.",
+    "No claim outside the included downside_verification_v1 benchmark suite."
+  ],
+  "positive_claim": "The Stock Harness reference packet provides bounded, deterministic verification evidence for the included downside-aware benchmark suite.",
+  "publishable_when": [
+    "schema_valid",
+    "required_evidence_present",
+    "hashes_verified",
+    "release_gate_passed",
+    "replay_passed",
+    "non_claims_preserved",
+    "forbidden_phrases_absent"
+  ],
+  "replay_commands": [
+    {
+      "command": [
+        "python",
+        "ops/replay_stock_harness_release_candidate.py",
+        "--pretty",
+        "--require-release-gate-json",
+        "--require-official-claim-ready"
+      ],
+      "cwd": "../../..",
+      "expected_returncode": 0,
+      "name": "stock_harness_release_candidate_replay"
+    }
+  ],
+  "required_evidence": [
+    "official_claim_packet_manifest.json",
+    "stock_harness_evidence_manifest.json",
+    "release_gate.json",
+    "replay_result.json"
+  ],
+  "schema": "claimsafe_contract_v0_1"
+}
